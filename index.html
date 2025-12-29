@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة ذاكر ان لين</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+
+    <div id="auth-container" class="form-container">
+        <h2>إنشاء حساب جديد</h2>
+        <input type="text" id="reg-name" placeholder="الأسم بالكامل">
+        <input type="tel" id="reg-phone" placeholder="رقم الهاتف">
+        <input type="text" id="reg-address" placeholder="العنوان">
+        <input type="number" id="reg-grade" placeholder="الصف الدراسي">
+        <input type="number" id="reg-year" placeholder="سنة الميلاد">
+        <label>اختر صورة شخصية:</label>
+        <input type="file" id="reg-avatar" accept="image/*">
+        <button onclick="register()">تسجيل الدخول</button>
+    </div>
+
+    <div id="main-content" style="display:none;">
+        <nav class="navbar">
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="searchSuggest()" placeholder="بحث عن فيديو أو ملف...">
+                <div id="suggestions" class="suggestions-list"></div>
+            </div>
+            <div class="nav-links">
+                <button onclick="showSection('feed')">الرئيسية</button>
+                <button onclick="showSection('upload')">نشر محتوى</button>
+                <button onclick="showSection('profile')">الملف الشخصي</button>
+                <button onclick="logout()" class="logout-btn">خروج</button>
+            </div>
+        </nav>
+
+        <main id="content-display">
+            <section id="feed-section">
+                <h2 class="section-title">آخر المنشورات</h2>
+                <div id="main-feed" class="media-grid"></div>
+            </section>
+
+            <section id="upload-section" style="display:none;">
+                <div class="form-container">
+                    <h3>نشر محتوى جديد</h3>
+                    <input type="text" id="file-title" placeholder="عنوان المنشور">
+                    <input type="file" id="file-input" accept="video/*,image/*,.pdf">
+                    <button onclick="uploadContent()">نشر الآن</button>
+                </div>
+            </section>
+
+            <section id="profile-section" style="display:none;">
+                <div class="form-container profile-card">
+                    <h3>ملفي الشخصي</h3>
+                    <div id="user-info-display"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
